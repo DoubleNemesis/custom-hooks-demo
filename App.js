@@ -1,51 +1,42 @@
 import React, { useState, useEffect } from 'react';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from "react-router-dom";
+import {Link, Switch, Route} from "react-router-dom"
 import Page from './Page.js'
 import Post from './Post.js'
-import Article from './Article.js'
-import CustomType from './CustomType.js'
+import Game from './Game.js'
+import Photo from './Photo.js'
 import { lorem, lorem1, lorem2, lorem3 } from './lorem.js'
 
 function App() {
 
     return (
         <>
-            <Router>
                 <nav>
-                    <Link to="/index.html">home</Link>
-                    <Link to="/one">one</Link>
-                    <Link to="/two">two</Link>
-                    <Link to="/three">three</Link>
-                    <Link to="/four">four</Link>
+                    <Link to="/">home</Link>
+                    <Link to="/about">About</Link>
+                    <Link to="/games">Games</Link>
+                    <Link to="/photos">Photos</Link>
+                    <Link to="/blog">Blog</Link>
                 </nav>
-
-                <Route exact path="/index.html">
-                    <Page title="">This is the HomePage</Page>
+            <Switch>
+                <Route exact path="/">
+                    <Page title="Home Page">
+                   <strong>Welcome to my site!</strong><br/>
+                   {lorem3}
+                    </Page>
                 </Route>
-
-
-                <Route path="/one">
-                    <Page title="One">{lorem}</Page>
+                <Route path="/about">
+                    <Page title="About">{lorem}</Page>
                 </Route>
-
-                <Route path="/two">
-                    <Article title="Two">{lorem1}</Article>
+                <Route path="/Games">
+                    <Game title="Fun Games">{lorem1}</Game>
                 </Route>
-
-                <Route path="/three">
-                    <CustomType title="Three">{lorem2}</CustomType>
+                <Route path="/photos">
+                    <Photo title="My Photos">{lorem2}</Photo>
                 </Route>
-
-                <Route path="/four">
-                    <Post title="Four">{lorem3}</Post>
+                <Route path="/blog">
+                    <Post title="My Blog">{lorem3}</Post>
                 </Route>
-
-            </Router>
+            </Switch>
         </>
     )
 }

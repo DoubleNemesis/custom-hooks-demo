@@ -1,13 +1,15 @@
-import React, {useEffect} from 'react'
-import {useScrollToTop} from './hooks/useScrollToTop.js'
+import React from 'react'
+import { useScrollToTop } from './hooks/useScrollToTop'
 
-function Page({children, ...props}){
+
+function Page({ children, ...props }) {
+
     useScrollToTop()
-    
-    return(
+
+    return (
         <>
-        <h1>Page {props.title}</h1>
-        <p>{children}</p>
+            <h1>{props.title}</h1>
+            <p>{children}</p>
         </>
     )
 }
